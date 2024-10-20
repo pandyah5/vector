@@ -1424,8 +1424,23 @@ class VectorNumpy3D(VectorNumpy, Spatial, Vector3D, FloatArray):  # type: ignore
 
     @property
     def azimuthal(self) -> AzimuthalNumpy:
-        """Returns the azimuthal type class for the given ``VectorNumpy3D`` object."""
-        # TODO: Add an example here - see https://github.com/scikit-hep/vector/issues/194
+        """
+        Returns the azimuthal type class for the given ``VectorNumpy3D`` object.
+
+        Example:
+            >>> import vector
+            >>> vec = vector.array(
+            ... [
+            ...     (1.1, 2.1, 3.1),
+            ...     (1.2, 2.2, 3.2),
+            ...     (1.3, 2.3, 3.3),
+            ...     (1.4, 2.4, 4.4),
+            ...     (1.5, 2.5, 5.5)
+            ...    ], dtype=[("x", float), ("y", float), ("z", float)]
+            ... )
+            >>> print(vec.azimuthal)
+            [(1.1, 2.1) (1.2, 2.2) (1.3, 2.3) (1.4, 2.4) (1.5, 2.5)]
+        """
         return self.view(self._azimuthal_type)
 
     @property
